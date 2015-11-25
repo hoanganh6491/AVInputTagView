@@ -8,6 +8,25 @@
 
 import UIKit
 
+class TagModel : NSObject {
+    var tagTitle : String = ""
+    var tagIndex : Int = 0
+    
+    override init() {
+        super.init()
+    }
+    
+    init(title: String, index: Int) {
+        super.init()
+        tagTitle = title
+        tagIndex = index
+    }
+}
+
+protocol TagInputViewDelegate {
+    func didSelectTagAtObjectIndex(object : TagModel)
+}
+
 class TagInputView: UIView, UICollectionViewDelegate, UICollectionViewDataSource {
 
     //view
@@ -18,7 +37,8 @@ class TagInputView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
     
     
     //data
-    let TAGS = ["Tech", "Design", "Humor", "Travel", "Music", "Writing", "Social Media", "Life", "Education", "Edtech", "Education Reform", "Photography", "Startup", "Poetry", "Women In Tech", "Female Founders", "Business", "Fiction", "Love", "Food", "Sports"]
+    var delegate : TagInputViewDelegate?
+    var arrTags : [TagModel] = []
     var sizingCell: TagCollectionCell?
     /*
     // Only override drawRect: if you perform custom drawing.
@@ -29,23 +49,12 @@ class TagInputView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
     */
     
     override func awakeFromNib() {
-        let cellNib = UINib(nibName: "TagCollectionCell", bundle: nil)
-        self.clvTagView.delegate = self
-        self.clvTagView.dataSource = self
-        self.clvTagView.registerNib(cellNib, forCellWithReuseIdentifier: "TagCollectionCell")
-        self.clvTagView.backgroundColor = UIColor.clearColor()
-        
-        self.sizingCell = (cellNib.instantiateWithOwner(nil, options: nil) as NSArray).firstObject as! TagCollectionCell?
-        self.constraintClvMaxWidth.constant = UIScreen.mainScreen().bounds.width
-        self.layoutIfNeeded()
-        print("alo alo")
+        settingView()
     }
 
     //MARK: - CollectionView Delegate - Datasource
-    
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(TAGS.count)
-        return TAGS.count
+        return arrTags.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -62,7 +71,28 @@ class TagInputView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
     }
     
     func configureCell(cell: TagCollectionCell, forIndexPath indexPath: NSIndexPath) {
-        let tag = TAGS[indexPath.row]
-        cell.lblTagName.text = tag
+        cell.lblTagName.text = arrTags[indexPath.row].tagTitle
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        collectionView.deselectItemAtIndexPath(indexPath, animated: true)
+        self.delegate?.didSelectTagAtObjectIndex(arrTags[indexPath.row])
+    }
+    
+    //MARK: - View Setting
+    func settingView () {
+        let cellNib = UINib(nibName: "TagCollectionCell", bundle: nil)
+        self.clvTagView.delegate = self
+        self.clvTagView.dataSource = self
+        self.clvTagView.registerNib(cellNib, forCellWithReuseIdentifier: "TagCollectionCell")
+        self.clvTagView.backgroundColor = UIColor.clearColor()
+        
+        self.sizingCell = (cellNib.instantiateWithOwner(nil, options: nil) as NSArray).firstObject as! TagCollectionCell?
+        self.constraintClvMaxWidth.constant = UIScreen.mainScreen().bounds.width
+        self.layoutIfNeeded()
+    }
+    
+    func settingData (data : [TagModel]) {
+        self.arrTags = data
     }
 }

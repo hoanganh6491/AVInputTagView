@@ -8,12 +8,10 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class ViewController: UIViewController, UITextFieldDelegate, TagInputViewDelegate {
 
     //view
     @IBOutlet weak var tfInputView: UITextField!
-    @IBOutlet weak var viewContainerView: UIView!
-    @IBOutlet weak var constraintLeadingBottom: NSLayoutConstraint!
 
     
     //data
@@ -33,10 +31,22 @@ class ViewController: UIViewController, UITextFieldDelegate {
     func textFieldDidBeginEditing(textField: UITextField) {
         let nib = UINib(nibName: "TagInputView", bundle: NSBundle(forClass: TagInputView.classForCoder()))
         let view = nib.instantiateWithOwner(self, options: nil)[0] as! TagInputView
-        constraintLeadingBottom.constant = 300
+        view.delegate = self
+        var arrData : [TagModel] = []
+        for var i : Int = 0; i < 10; i++ {
+            let tag : TagModel = TagModel(title: String(format: "tag-%d",i), index: i)
+            arrData.append(tag)
+        }
+        view.settingData(arrData)
+        view.clvTagView.reloadData()
         self.view.layoutIfNeeded()
         
-        self.viewContainerView.addSubview(view)
+        textField.inputAccessoryView = view
+    }
+    
+    //MARK: - TagInputViewDelegate
+    func didSelectTagAtObjectIndex(object: TagModel) {
+        tfInputView.text?.appendContentsOf(object.tagTitle)
     }
 }
 
