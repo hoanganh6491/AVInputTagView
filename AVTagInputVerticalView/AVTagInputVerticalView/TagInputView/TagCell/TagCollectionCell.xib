@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TagCollectionCell" id="gTV-IL-0wX" customClass="TagCollectionCell" customModule="AVTagInputVerticalView" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="40"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="300" height="40"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="39X-3l-sde">
+                        <rect key="frame" x="8" y="8" width="284" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="284" id="cNY-65-MMF"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="f3m-X0-lix"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <color key="backgroundColor" red="0.83529411760000005" green="0.086274509799999996" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="39X-3l-sde" secondAttribute="bottom" constant="8" id="GrN-A4-rd5"/>
+                <constraint firstItem="39X-3l-sde" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="QeJ-Yc-bbb"/>
+                <constraint firstItem="39X-3l-sde" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="RJe-dt-Sw6"/>
+                <constraint firstAttribute="trailing" secondItem="39X-3l-sde" secondAttribute="trailing" constant="8" id="uQh-bK-ygU"/>
+            </constraints>
+            <size key="customSize" width="263" height="51"/>
+            <connections>
+                <outlet property="constraintMaxWidth" destination="cNY-65-MMF" id="dsZ-oq-vCN"/>
+                <outlet property="lblTagName" destination="39X-3l-sde" id="Awz-6Z-7pN"/>
+            </connections>
+            <point key="canvasLocation" x="218" y="342"/>
+        </collectionViewCell>
+    </objects>
+</document>

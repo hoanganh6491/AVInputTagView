@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="TagInputView" customModule="AVTagInputVerticalView" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="40"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TqS-1r-Wqm" userLabel="View- contentView">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="40"/>
+                    <subviews>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="lfI-Yq-TSF">
+                            <rect key="frame" x="0.0" y="0.0" width="306" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="306" id="61o-gu-r6V"/>
+                            </constraints>
+                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="E7w-rl-tfC">
+                                <size key="itemSize" width="50" height="50"/>
+                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </collectionViewFlowLayout>
+                            <connections>
+                                <outlet property="dataSource" destination="iN0-l3-epB" id="fci-5m-lW5"/>
+                                <outlet property="delegate" destination="iN0-l3-epB" id="Gka-co-mLE"/>
+                            </connections>
+                        </collectionView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.26855425469999999" green="0.92825417929999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="lfI-Yq-TSF" firstAttribute="leading" secondItem="TqS-1r-Wqm" secondAttribute="leading" id="5Ee-WF-JhT"/>
+                        <constraint firstAttribute="height" constant="40" id="7aP-1w-ob7"/>
+                        <constraint firstAttribute="bottom" secondItem="lfI-Yq-TSF" secondAttribute="bottom" id="Qs9-HC-hv3"/>
+                        <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="lfI-Yq-TSF" secondAttribute="trailing" constant="294" id="h2o-87-3xj"/>
+                        <constraint firstItem="lfI-Yq-TSF" firstAttribute="top" secondItem="TqS-1r-Wqm" secondAttribute="top" id="izs-97-ZNb"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="TqS-1r-Wqm" secondAttribute="bottom" id="0pE-yB-tpj"/>
+                <constraint firstItem="TqS-1r-Wqm" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="99O-Jm-la8"/>
+                <constraint firstItem="TqS-1r-Wqm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Snc-u6-rWe"/>
+                <constraint firstAttribute="trailing" secondItem="TqS-1r-Wqm" secondAttribute="trailing" id="bTH-Z3-pg0"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="clvFlowLayout" destination="E7w-rl-tfC" id="OQ4-rg-6tA"/>
+                <outlet property="clvTagView" destination="lfI-Yq-TSF" id="V5l-7w-Uey"/>
+                <outlet property="constraintClvMaxWidth" destination="61o-gu-r6V" id="Mwj-xt-fxA"/>
+                <outlet property="viewContentView" destination="TqS-1r-Wqm" id="fz7-s1-gOd"/>
+            </connections>
+            <point key="canvasLocation" x="315" y="213"/>
+        </view>
+    </objects>
+</document>

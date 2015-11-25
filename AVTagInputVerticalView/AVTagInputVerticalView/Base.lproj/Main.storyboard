@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AVTagInputVerticalView" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qLX-43-S0R">
+                                <rect key="frame" x="20" y="36" width="560" height="52"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="Fyf-qt-7dI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="qj3-dk-8lN"/>
+                                </connections>
+                            </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OHI-e9-dqU">
+                                <rect key="frame" x="0.0" y="544" width="600" height="40"/>
+                                <color key="backgroundColor" red="0.82530196310000004" green="1" blue="0.96254114349999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="WFr-gY-OMX"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qLX-43-S0R" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="16" id="DOZ-OL-Juh"/>
+                            <constraint firstItem="OHI-e9-dqU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="LyF-Cz-IA2"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="OHI-e9-dqU" secondAttribute="bottom" constant="16" id="P9X-5F-BZx"/>
+                            <constraint firstAttribute="trailing" secondItem="qLX-43-S0R" secondAttribute="trailing" constant="20" id="aR0-M6-GBh"/>
+                            <constraint firstItem="qLX-43-S0R" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="kwL-Ea-Kyb"/>
+                            <constraint firstAttribute="trailing" secondItem="OHI-e9-dqU" secondAttribute="trailing" id="xd8-PA-bTS"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="constraintLeadingBottom" destination="P9X-5F-BZx" id="Imt-34-im6"/>
+                        <outlet property="tfInputView" destination="qLX-43-S0R" id="gkb-G8-Koa"/>
+                        <outlet property="viewContainerView" destination="OHI-e9-dqU" id="iwn-kR-7YY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="565" y="456"/>
+        </scene>
+    </scenes>
+</document>
